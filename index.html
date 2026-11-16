@@ -6,14 +6,14 @@
   <meta name="theme-color" content="#e3e6e6">
   <meta name="description" content="Vitremi organiza descansos visuales mientras trabajas o estudias frente a una pantalla. Sesiones, calendario y recordatorios de parpadeo para iPhone.">
   <title>Vitremi — descansos visuales para iPhone</title>
-  <link rel="icon" href="assets/vitremi-ring.png">
-  <link rel="stylesheet" href="assets/style.css?v=blink-reminders">
-  <script src="assets/scene.js?v=scroll-dial" defer></script>
+  <link rel="icon" href="assets/vitremi-ring-depth.png">
+  <link rel="stylesheet" href="assets/style.css?v=blink-demo">
+  <script src="assets/scene.js?v=blink-demo" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Vitremi, inicio"><img src="assets/vitremi-ring.png" width="38" height="38" alt=""><span>vitremi</span></a>
+    <a class="brand" href="#inicio" aria-label="Vitremi, inicio"><img src="assets/vitremi-ring-depth.png" width="38" height="38" alt=""><span>vitremi</span></a>
     <nav aria-label="Secciones"><a href="#descanso">Descanso</a><a href="#calendario">Calendario</a><a href="#parpadeo">Parpadeo</a><a href="#historial">Historial</a></nav>
     <details class="language-picker" data-language-picker>
       <summary>
@@ -76,6 +76,16 @@
         <h2 id="blink-title">Recordatorios de parpadeo</h2>
         <p>Activa Recordatorio de parpadeo en Ajustes y elige un intervalo de 1 a 30 minutos. Vitremi te recuerda parpadear durante la etapa de trabajo de una sesión, según tus ajustes de sonido y Actividades en vivo.</p>
       </div>
+      <div class="blink-demo" data-blink-demo hidden>
+        <button class="blink-demo-button" type="button" data-message="Es hora de parpadear">
+          <svg class="blink-eye" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+            <path d="M3 24s7.5-12 21-12 21 12 21 12-7.5 12-21 12S3 24 3 24Z"/>
+            <circle cx="24" cy="24" r="6"/>
+          </svg>
+          <span><strong>Probar aviso</strong><small>Ejemplo · Cada 5 min</small></span>
+        </button>
+        <p class="blink-demo-message" role="status"></p>
+      </div>
     </section>
     <section class="history-section section" id="historial" aria-labelledby="history-title">
       <h2 id="history-title">Historial</h2>
@@ -85,6 +95,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="assets/vitremi-ring.png" width="32" height="32" alt=""><span>vitremi</span></a></div><div class="footer-links"><a href="privacy.html">Privacidad</a><a href="support.html">Soporte</a><a href="usage.html">Uso y límites</a></div><small>© 2026 Domepath</small></footer>
+  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="assets/vitremi-ring-depth.png" width="32" height="32" alt=""><span>vitremi</span></a></div><div class="footer-links"><a href="privacy.html">Privacidad</a><a href="support.html">Soporte</a><a href="usage.html">Uso y límites</a></div><small>© 2026 DomePath</small></footer>
 </body>
 </html>

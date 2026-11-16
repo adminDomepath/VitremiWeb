@@ -148,3 +148,50 @@ if (languagePicker) {
     languagePicker.querySelector('summary').focus();
   });
 }
+
+const blinkDemo = document.querySelector('[data-blink-demo]');
+if (blinkDemo) {
+  const button = blinkDemo.querySelector('button');
+  const eye = blinkDemo.querySelector('.blink-eye');
+  const message = blinkDemo.querySelector('[role="status"]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let animation;
+
+  function playBlink() {
+    animation?.cancel();
+    if (reduceMotion.matches) return;
+
+    // Match the three closures in the app's five-second BlinkingEye cycle.
+    const duration = 5000;
+    const keyframes = [
+      [0, 1], [500, 1], [620, 0.08], [740, 1],
+      [860, 1], [980, 0.08], [1100, 1],
+      [2400, 1], [2520, 0.08], [2640, 1], [duration, 1]
+    ].map(([time, openness]) => ({
+      offset: time / duration,
+      transform: `scaleY(${openness})`,
+      easing: 'ease-in-out'
+    }));
+
+    animation = eye.animate(keyframes, { duration });
+  }
+
+  const visibleFraction = 0.65;
+  const observer = new IntersectionObserver(([entry]) => {
+    if (entry.intersectionRatio < visibleFraction) return;
+
+    observer.disconnect();
+    playBlink();
+  }, { threshold: visibleFraction });
+
+  blinkDemo.hidden = false;
+  observer.observe(blinkDemo);
+  button.addEventListener('click', () => {
+    observer.disconnect();
+    message.textContent = button.dataset.message;
+    playBlink();
+  });
+  reduceMotion.addEventListener('change', () => {
+    if (reduceMotion.matches) animation?.cancel();
+  });
+}
