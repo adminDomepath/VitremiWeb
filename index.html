@@ -7,10 +7,11 @@
   <meta name="description" content="Vitremi organiza descansos visuales mientras trabajas o estudias frente a una pantalla. Sesiones, calendario e historial para iPhone.">
   <title>Vitremi — descansos visuales para iPhone</title>
   <link rel="icon" href="assets/vitremi-icon.png">
-  <link rel="stylesheet" href="assets/style.css?v=rest-sky">
-  <script src="assets/scene.js?v=rest-sky" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=full-sky">
+  <script src="assets/scene.js?v=full-sky" defer></script>
 </head>
 <body>
+  <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
   <header class="site-header">
     <a class="brand" href="#inicio" aria-label="Vitremi, inicio"><img src="assets/vitremi-icon.png" width="38" height="38" alt=""><span>vitremi</span></a>
     <nav aria-label="Secciones"><a href="#descanso">Descanso</a><a href="#calendario">Calendario</a><a href="#historial">Historial</a></nav>
@@ -37,7 +38,6 @@
       </div>
     </section>
     <section class="break-section section" id="descanso" aria-labelledby="break-title">
-      <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
       <div class="break-inner">
         <div class="break-copy">
           <h2 id="break-title">Descanso</h2>

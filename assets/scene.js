@@ -50,7 +50,7 @@ function drawRestSky(canvas) {
 
 const breakSection = document.querySelector('#descanso');
 if (breakSection) {
-  const canvas = breakSection.querySelector('canvas');
+  const canvas = document.querySelector('.rest-sky canvas');
   const dial = breakSection.querySelector('[data-rest-label]');
   const clock = dial.querySelector('strong');
   const phase = dial.querySelector('[data-rest-phase]');
