@@ -225,7 +225,6 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   gap: clamp(30px, 6vw, 76px);
   border-top: 1px solid var(--line);
 }
-.history-example p { margin: 0 0 16px; color: var(--muted); font-size: .85rem; }
 .history-metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 0; }
 .history-metric {
   display: grid;
@@ -261,7 +260,6 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 @keyframes metric-roll-up {
   to { transform: translateY(-50%); }
 }
-.is-break .history-example p { color: var(--sky-muted); }
 .is-break .history-metric { box-shadow: 0 12px 32px #09132b55; }
 .site-footer { padding: 42px clamp(24px, 7vw, 112px) 26px; background: var(--paper); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; }
 .footer-brand p, .site-footer small { color: var(--muted); font-size: .82rem; }
