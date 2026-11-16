@@ -11,4 +11,4 @@ App Store Connect URLs:
 - Support: `https://admindomepath.github.io/VitremiWeb/support.html`
 - User Privacy Choices (optional): `https://admindomepath.github.io/VitremiWeb/privacy.html#espanol`
 
-For the iOS Settings link, set `VITREMI_PRIVACY_POLICY_URL` to the Privacy policy URL when building the app. Review App Privacy answers against the exact build configuration, particularly whether the optional Live Activity push service is enabled.
+The iOS project sets `VITREMI_PRIVACY_POLICY_URL` to the published privacy policy for Debug and Release builds. Review App Privacy answers against the exact build configuration, particularly whether the optional Live Activity push service is enabled.
