@@ -205,3 +205,94 @@ if (blinkOrb) {
   document.addEventListener('visibilitychange', updateBlink);
   reduceMotion.addEventListener('change', updateBlink);
 }
+
+const historyMetrics = document.querySelector('.history-metrics');
+if (historyMetrics) {
+  const values = [...historyMetrics.querySelectorAll('.metric-value')];
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let breaks = 5;
+  let visible = false;
+  let timer;
+
+  function durationParts(seconds) {
+    const parts = [
+      [Math.floor(seconds / 3600), 'h'],
+      [Math.floor(seconds / 60) % 60, 'min'],
+      [seconds % 60, 's']
+    ];
+    return parts.filter(([value]) => value > 0);
+  }
+
+  function metricParts() {
+    return [
+      durationParts(breaks * 20 * 60),
+      [[breaks, '']],
+      [[Math.floor((breaks + 1) / 3), '']],
+      durationParts(breaks * 20)
+    ];
+  }
+
+  function rollDigits(part, previous, next) {
+    const digits = String(next);
+    const oldDigits = String(previous ?? '').padStart(digits.length, ' ');
+    for (const [index, digit] of [...digits].entries()) {
+      if (oldDigits[index] === digit) {
+        part.append(digit);
+        continue;
+      }
+
+      const digitClip = document.createElement('span');
+      digitClip.className = 'metric-digit';
+      const track = document.createElement('span');
+      track.className = 'metric-digit-track';
+      for (const character of [oldDigits[index], digit]) {
+        const row = document.createElement('span');
+        row.textContent = character;
+        track.append(row);
+      }
+      digitClip.append(track);
+      part.append(digitClip);
+    }
+  }
+
+  function advanceMetrics() {
+    const previous = metricParts();
+    breaks++;
+
+    for (const [index, parts] of metricParts().entries()) {
+      const [visual, accessibleValue] = values[index].children;
+      const label = parts.map(([value, unit]) => unit ? `${value} ${unit}` : String(value)).join(' ');
+      if (label === accessibleValue.textContent) continue;
+
+      const fragment = document.createDocumentFragment();
+      for (const [value, unit] of parts) {
+        if (fragment.childNodes.length) fragment.append(' ');
+        const part = document.createElement('span');
+        part.className = 'metric-part';
+        const oldValue = previous[index].find(([, oldUnit]) => oldUnit === unit)?.[0];
+        rollDigits(part, oldValue, value);
+        if (unit) part.append(` ${unit}`);
+        fragment.append(part);
+      }
+      visual.replaceChildren(fragment);
+      accessibleValue.textContent = label;
+    }
+  }
+
+  function updateMetricsTimer() {
+    const shouldAdvance = visible && !document.hidden && !reduceMotion.matches;
+    if (shouldAdvance && timer === undefined) {
+      timer = window.setInterval(advanceMetrics, 3800);
+    } else if (!shouldAdvance && timer !== undefined) {
+      window.clearInterval(timer);
+      timer = undefined;
+    }
+  }
+
+  new IntersectionObserver(([entry]) => {
+    visible = entry.isIntersecting;
+    updateMetricsTimer();
+  }).observe(historyMetrics);
+  reduceMotion.addEventListener('change', updateMetricsTimer);
+  document.addEventListener('visibilitychange', updateMetricsTimer);
+}
