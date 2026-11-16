@@ -282,7 +282,7 @@ if (historyMetrics) {
   function updateMetricsTimer() {
     const shouldAdvance = visible && !document.hidden && !reduceMotion.matches;
     if (shouldAdvance && timer === undefined) {
-      timer = window.setInterval(advanceMetrics, 2800);
+      timer = window.setInterval(advanceMetrics, 1400);
     } else if (!shouldAdvance && timer !== undefined) {
       window.clearInterval(timer);
       timer = undefined;
