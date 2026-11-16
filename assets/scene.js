@@ -199,7 +199,7 @@ if (blinkOrb) {
     const x = event.clientX - (orb.left + orb.width / 2);
     const y = event.clientY - (orb.top + orb.height / 2);
     const distance = Math.max(75, Math.hypot(x, y));
-    pupil.setAttribute('transform', `translate(${8 * x / distance} ${4 * y / distance})`);
+    pupil.setAttribute('transform', `translate(${7 * x / distance} ${3 * y / distance})`);
   }, { passive: true });
   document.documentElement.addEventListener('pointerleave', centerPupil);
   document.addEventListener('visibilitychange', updateBlink);

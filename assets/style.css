@@ -215,6 +215,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   transform-origin: center;
 }
 .blink-pupil { fill: var(--green); stroke: none; }
+.blink-glint { fill: var(--paper-light); }
 .is-break .blink-orb { box-shadow: 0 12px 32px #09132b55; }
 .history-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; border-top: 1px solid var(--line); }
 .site-footer { padding: 42px clamp(24px, 7vw, 112px) 26px; background: var(--paper); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; }
