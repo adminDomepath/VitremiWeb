@@ -201,20 +201,17 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   width: min(100%, 216px);
   aspect-ratio: 1;
   justify-self: center;
-  filter: drop-shadow(8px 10px 12px #3b474522);
 }
-.calendar-logo > *, .calendar-relay img { grid-area: 1 / 1; }
-.calendar-logo img { width: 100%; height: auto; }
-.calendar-relay { display: grid; animation: calendar-relay-turn 3s steps(3, end) infinite; }
-.calendar-relay img { animation: var(--arc-motion) 1s linear infinite; }
+.calendar-logo > img { grid-area: 1 / 1; width: 100%; height: auto; }
+.calendar-logo > img:first-child {
+  border-radius: 50%;
+  box-shadow: 8px 10px 20px #3b474522;
+}
+.calendar-arc { animation: var(--arc-motion) 3s linear infinite paused; }
 .calendar-arc-blue { --arc-motion: calendar-arc-blue; }
 .calendar-arc-leading { --arc-motion: calendar-arc-leading; }
 .calendar-arc-trailing { --arc-motion: calendar-arc-trailing; }
-.calendar-logo :is(.calendar-relay, .calendar-relay img) { animation-play-state: paused; }
-.calendar-logo.is-visible :is(.calendar-relay, .calendar-relay img) { animation-play-state: running; }
-@keyframes calendar-relay-turn {
-  to { transform: rotate(360deg); }
-}
+.calendar-logo.is-visible .calendar-arc { animation-play-state: running; }
 .repeat-list { margin: 32px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .repeat-list li { padding: 18px; border-radius: 18px; font-weight: 650; box-shadow: inset 3px 3px 8px #a3ada866, inset -3px -3px 8px #ffffffbf; }
 .calendar-note { margin: 24px 0 0; }
@@ -336,7 +333,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   .history-metric svg { width: 18px; height: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .calendar-logo :is(.calendar-relay, .calendar-relay img) { animation: none; }
+  .calendar-arc { animation: none; }
   .metric-digit-track { animation: none; transform: translateY(-50%); }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
