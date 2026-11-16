@@ -296,3 +296,10 @@ if (historyMetrics) {
   reduceMotion.addEventListener('change', updateMetricsTimer);
   document.addEventListener('visibilitychange', updateMetricsTimer);
 }
+
+const calendarLogo = document.querySelector('.calendar-logo');
+if (calendarLogo) {
+  new IntersectionObserver(([entry]) => {
+    calendarLogo.classList.toggle('is-visible', entry.isIntersecting);
+  }).observe(calendarLogo);
+}

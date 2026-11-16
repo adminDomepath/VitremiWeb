@@ -7,8 +7,9 @@
   <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and blink reminders for iPhone.">
   <title>Vitremi — eye breaks for iPhone</title>
   <link rel="icon" href="../assets/vitremi-icon-composer.png">
-  <link rel="stylesheet" href="../assets/style.css?v=logo-fade">
-  <script src="../assets/scene.js?v=history-pace-2" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=calendar-relay">
+  <link rel="stylesheet" href="../assets/calendar-motion.css">
+  <script src="../assets/scene.js?v=calendar-relay" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
@@ -59,17 +60,27 @@
       </div>
     </section>
     <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title">
-      <div class="section-top">
-        <h2 id="calendar-title">Calendar</h2>
-        <p>Schedule a session by choosing when it starts and which profile to use. Use the profile’s duration or set an end time yourself.</p>
+      <div class="calendar-copy">
+        <div class="section-top">
+          <h2 id="calendar-title">Calendar</h2>
+          <p>Schedule a session by choosing when it starts and which profile to use. Use the profile’s duration or set an end time yourself.</p>
+        </div>
+        <ul class="repeat-list" role="list">
+          <li>Once</li>
+          <li>Every day</li>
+          <li>Every week</li>
+          <li>Every month</li>
+        </ul>
+        <p class="calendar-note">With notifications enabled, scheduled reminders can reach you while Vitremi is closed.</p>
       </div>
-      <ul class="repeat-list" role="list">
-        <li>Once</li>
-        <li>Every day</li>
-        <li>Every week</li>
-        <li>Every month</li>
-      </ul>
-      <p class="calendar-note">With notifications enabled, scheduled reminders can reach you while Vitremi is closed.</p>
+      <div class="calendar-logo" aria-hidden="true">
+        <img src="../assets/calendar-dial.png" alt="" width="432" height="432" loading="lazy">
+        <div class="calendar-relay">
+          <img class="calendar-arc-trailing" src="../assets/calendar-arc-trailing.png" alt="" width="432" height="432" loading="lazy">
+          <img class="calendar-arc-blue" src="../assets/calendar-arc-blue.png" alt="" width="432" height="432" loading="lazy">
+          <img class="calendar-arc-leading" src="../assets/calendar-arc-leading.png" alt="" width="432" height="432" loading="lazy">
+        </div>
+      </div>
     </section>
     <section class="blink-section section" id="parpadeo" aria-labelledby="blink-title">
       <div class="blink-orb" aria-hidden="true">
