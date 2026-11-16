@@ -149,16 +149,13 @@ if (languagePicker) {
   });
 }
 
-const blinkDemo = document.querySelector('[data-blink-demo]');
-if (blinkDemo) {
-  const button = blinkDemo.querySelector('button');
-  const eye = blinkDemo.querySelector('.blink-eye');
-  const message = blinkDemo.querySelector('[role="status"]');
+const blinkOrb = document.querySelector('.blink-orb');
+if (blinkOrb) {
+  const eye = blinkOrb.querySelector('.blink-eye');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let animation;
 
   function playBlink() {
-    animation?.cancel();
     if (reduceMotion.matches) return;
 
     // Match the three closures in the app's five-second BlinkingEye cycle.
@@ -184,13 +181,7 @@ if (blinkDemo) {
     playBlink();
   }, { threshold: visibleFraction });
 
-  blinkDemo.hidden = false;
-  observer.observe(blinkDemo);
-  button.addEventListener('click', () => {
-    observer.disconnect();
-    message.textContent = button.dataset.message;
-    playBlink();
-  });
+  observer.observe(blinkOrb);
   reduceMotion.addEventListener('change', () => {
     if (reduceMotion.matches) animation?.cancel();
   });

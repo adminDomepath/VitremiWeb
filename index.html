@@ -7,8 +7,8 @@
   <meta name="description" content="Vitremi organiza descansos visuales mientras trabajas o estudias frente a una pantalla. Sesiones, calendario y recordatorios de parpadeo para iPhone.">
   <title>Vitremi — descansos visuales para iPhone</title>
   <link rel="icon" href="assets/vitremi-ring-depth.png">
-  <link rel="stylesheet" href="assets/style.css?v=blink-demo">
-  <script src="assets/scene.js?v=blink-demo" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=blink-orb">
+  <script src="assets/scene.js?v=blink-orb" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
@@ -72,19 +72,17 @@
       <p class="calendar-note">Con las notificaciones activadas, los avisos programados pueden llegarte aunque Vitremi esté cerrada.</p>
     </section>
     <section class="blink-section section" id="parpadeo" aria-labelledby="blink-title">
-      <div class="section-top">
-        <h2 id="blink-title">Recordatorios de parpadeo</h2>
-        <p>Activa Recordatorio de parpadeo en Ajustes y elige un intervalo de 1 a 30 minutos. Vitremi te recuerda parpadear durante la etapa de trabajo de una sesión, según tus ajustes de sonido y Actividades en vivo.</p>
-      </div>
-      <div class="blink-demo" data-blink-demo hidden>
-        <button class="blink-demo-button" type="button" data-message="Es hora de parpadear">
-          <svg class="blink-eye" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+      <div class="blink-orb" aria-hidden="true">
+        <div class="blink-orb-face">
+          <svg class="blink-eye" viewBox="0 0 48 48" fill="none">
             <path d="M3 24s7.5-12 21-12 21 12 21 12-7.5 12-21 12S3 24 3 24Z"/>
             <circle cx="24" cy="24" r="6"/>
           </svg>
-          <span><strong>Probar aviso</strong><small>Ejemplo · Cada 5 min</small></span>
-        </button>
-        <p class="blink-demo-message" role="status"></p>
+        </div>
+      </div>
+      <div class="section-top">
+        <h2 id="blink-title">Recordatorios de parpadeo</h2>
+        <p>Activa Recordatorio de parpadeo en Ajustes y elige un intervalo de 1 a 30 minutos. Vitremi te recuerda parpadear durante la etapa de trabajo de una sesión, según tus ajustes de sonido y Actividades en vivo.</p>
       </div>
     </section>
     <section class="history-section section" id="historial" aria-labelledby="history-title">

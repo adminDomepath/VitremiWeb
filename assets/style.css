@@ -1,4 +1,5 @@
 :root {
+  --timer-diameter: 300px;
   --paper: #e3e6e6;
   --paper-light: #f5f7f7;
   --ink: #3b4745;
@@ -17,7 +18,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 body { isolation: isolate; margin: 0; color: var(--ink); background: var(--paper); font-family: var(--font); -webkit-font-smoothing: antialiased; }
 a { color: inherit; text-decoration: none; }
-a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid #7196ca; outline-offset: 4px; }
+a:focus-visible, summary:focus-visible { outline: 2px solid #7196ca; outline-offset: 4px; }
 img { display: block; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
@@ -103,7 +104,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 .inline-link:hover { color: var(--green); background: var(--paper-light); }
 .timer-slot {
   justify-self: center;
-  width: min(100%, 300px);
+  width: min(100%, var(--timer-diameter));
   aspect-ratio: 1;
 }
 .timer-dial {
@@ -189,44 +190,47 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 .calendar-note { margin: 24px 0 0; }
 .blink-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, .65fr);
-  align-items: center;
-  gap: clamp(28px, 7vw, 90px);
+  justify-items: center;
+  gap: 28px;
   border-top: 1px solid var(--line);
+  text-align: center;
 }
-.blink-demo[hidden] { display: none; }
-.blink-demo {
-  width: min(100%, 340px);
-  min-width: 0;
-  padding: 22px;
+.blink-section p { margin: 0 auto; }
+.blink-orb {
+  position: relative;
+  width: min(100%, calc(var(--timer-diameter) / 2));
+  aspect-ratio: 1;
   border: 1px solid #ffffff99;
-  border-radius: 28px;
+  border-radius: 50%;
   background: var(--paper);
-  color: var(--ink);
   box-shadow: var(--soft-shadow);
 }
-.blink-demo-button {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 16px;
-  padding: 12px 15px;
-  border: 1px solid transparent;
-  border-radius: 18px;
-  background: #a6baab40;
-  color: inherit;
-  font: inherit;
-  text-align: start;
-  cursor: pointer;
+.blink-orb::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid #a3ada855;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #a3ada875, #f5f7f7);
 }
-.blink-demo-button:hover { background: #a6baab65; }
-.blink-demo-button:active { border-color: var(--green); }
-.blink-demo-button strong, .blink-demo-button small { display: block; }
-.blink-demo-button small { margin-top: 3px; color: var(--muted); }
-.blink-eye { flex: 0 0 44px; width: 44px; height: 44px; stroke: var(--green); stroke-width: 2.8; stroke-linejoin: round; }
-.blink-demo-message { min-height: 1.5em; margin-top: 10px; color: var(--green); font-size: .9rem; font-weight: 650; }
-.is-break .blink-demo { box-shadow: 0 12px 32px #09132b55; }
-.blink-section p { margin-bottom: 0; }
+.blink-orb-face {
+  position: absolute;
+  inset: 14%;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: inset 4px 4px 8px #a3ada84d, inset -4px -4px 8px #ffffffcc;
+}
+.blink-eye {
+  display: block;
+  width: 54%;
+  stroke: var(--green);
+  stroke-width: 2.8;
+  stroke-linejoin: round;
+  transform-origin: center;
+}
+.is-break .blink-orb { box-shadow: 0 12px 32px #09132b55; }
 .history-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; border-top: 1px solid var(--line); }
 .site-footer { padding: 42px clamp(24px, 7vw, 112px) 26px; background: var(--paper); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; }
 .footer-brand p, .site-footer small { color: var(--muted); font-size: .82rem; }
@@ -251,10 +255,9 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 @media (max-width: 760px) {
   .intro, .break-inner { grid-template-columns: 1fr; min-height: 0; padding: 66px 24px; gap: 38px; }
   .intro h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
-  .timer-slot { width: min(100%, 246px); }
+  :root { --timer-diameter: 246px; }
   .break-copy { grid-row: 2; }
   .repeat-list { grid-template-columns: repeat(2, 1fr); }
-  .blink-section { grid-template-columns: 1fr; }
   .history-section { grid-template-columns: 1fr; gap: 0; }
 }
 @media (max-width: 620px) {
