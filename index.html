@@ -3,41 +3,44 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e3e8e2">
-  <meta name="description" content="Vitremi te ayuda a crear una rutina de descansos visuales con sesiones, recordatorios y un calendario flexible para iPhone.">
-  <title>Vitremi — un momento para mirar lejos</title>
+  <meta name="theme-color" content="#e3e6e1">
+  <meta name="description" content="Vitremi organiza descansos visuales mientras trabajas o estudias frente a una pantalla. Sesiones, calendario e historial para iPhone.">
+  <title>Vitremi — descansos visuales para iPhone</title>
   <link rel="icon" href="assets/vitremi-icon.png">
   <link rel="stylesheet" href="assets/style.css">
   <script src="assets/scene.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Vitremi, inicio"><img src="assets/vitremi-icon.png" alt="" width="38" height="38"><span>vitremi</span></a>
-    <nav aria-label="Navegación principal"><a href="#descanso">Descanso</a><a href="#calendario">Calendario</a><a href="#historial">Historial</a></nav>
-    <a class="language" href="en/" lang="en" hreflang="en">English <span aria-hidden="true">↗</span></a>
+    <a class="brand" href="#inicio" aria-label="Vitremi, inicio"><img src="assets/vitremi-icon.png" width="38" height="38" alt=""><span>vitremi</span></a>
+    <nav aria-label="Secciones"><a href="#descanso">Descanso</a><a href="#calendario">Calendario</a><a href="#historial">Historial</a></nav>
+    <label class="language-picker">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 4 5.5 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.5-4-9s1.4-6.5 4-9Z"/></svg>
+      <span class="sr-only">Idioma</span>
+      <select aria-label="Idioma" data-language-picker><option value="./" selected>Español</option><option value="en/">English</option></select>
+    </label>
   </header>
   <main>
-    <section class="hero section" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">BIENESTAR VISUAL · IPHONE</p>
-        <h1 id="hero-title">Haz espacio para <em>mirar lejos.</em></h1>
-        <p class="lead">Vitremi te acompaña mientras trabajas o estudias frente a cualquier pantalla. Inicia una sesión y recibe recordatorios para hacer pausas visuales a tu ritmo.</p>
-        <div class="hero-actions"><a class="button" href="#descanso">Conoce Vitremi <span aria-hidden="true">↗</span></a><span class="micro">Sin cuenta. Tus sesiones se guardan en tu iPhone.</span></div>
+    <section class="intro section" id="inicio" aria-labelledby="intro-title">
+      <div class="intro-copy">
+        <p class="section-label">VITREMI PARA IPHONE</p>
+        <h1 id="intro-title">Descansos visuales para tus días frente a una pantalla.</h1>
+        <p>Inicia una sesión en el iPhone. Vitremi te recuerda cuándo apartar la vista, lleva la cuenta de cada pausa y guarda un resumen al terminar.</p>
+        <a class="inline-link" href="#descanso">Así funciona <span aria-hidden="true">↘</span></a>
       </div>
-      <div class="hero-visual" aria-label="Vista ilustrativa de una sesión de Vitremi">
-        <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-        <div class="phone phone-main"><div class="phone-top"><span>9:41</span><span>●●●</span></div><div class="phone-title"><span class="tiny-icon">◉</span><span>Sesión</span></div><p class="phone-kicker">EN CURSO</p><div class="dial"><span class="dial-center"><small>PRÓXIMO DESCANSO</small><strong>19:42</strong><small>minutos</small></span></div><div class="phone-profile"><span class="profile-symbol">✳</span><span><strong>Focus</strong><small>Trabajo y descanso</small></span><span>⌄</span></div><div class="phone-controls"><span>Pausar</span><span>Descansar ahora</span></div><div class="phone-tabs"><span>◉<small>Sesión</small></span><span>▦<small>Calendario</small></span><span>◫<small>Historial</small></span><span>☷<small>Ajustes</small></span></div></div>
-      </div>
-      <div class="section-number">01 / 04</div>
+      <figure class="cycle" aria-label="Ejemplo del ciclo Focus de Vitremi">
+        <div class="cycle-heading"><img src="assets/vitremi-icon.png" width="62" height="62" alt=""><span><strong>Un ciclo sencillo</strong><small>Ejemplo con el perfil Focus</small></span></div>
+        <ol><li><span class="cycle-step">01</span><span><strong>Trabajo</strong><small>20 minutos hasta el próximo aviso</small></span></li><li><span class="cycle-step">02</span><span><strong>Descanso</strong><small>20 segundos para mirar lejos</small></span></li><li><span class="cycle-step">03</span><span><strong>Continúa</strong><small>El ciclo vuelve a empezar</small></span></li></ol>
+        <figcaption>Los tiempos se pueden adaptar a tu rutina.</figcaption>
+      </figure>
     </section>
     <section class="break-section section" id="descanso" aria-labelledby="break-title">
-      <div class="starfield" aria-hidden="true"></div>
-      <div class="break-glow" aria-hidden="true"></div>
-      <div class="section-inner break-layout"><div class="section-copy"><p class="eyebrow">02 / DESCANSO</p><h2 id="break-title">Cuando llega la pausa, <em>cambia el ambiente.</em></h2><p>El cielo estrellado y el azul nocturno señalan el momento de apartar la vista de la pantalla. Vitremi lleva la cuenta del descanso y te avisa cuando termina, según tus ajustes y los permisos de iOS.</p><div class="detail-line"><span class="detail-dot"></span>Tu ciclo continúa aunque cierres la app.</div></div><div class="break-card"><div class="break-card-top"><span>✦</span><span>DESCANSO EN CURSO</span><span>···</span></div><div class="break-orbit"><div class="break-orbit-inner"><small>VUELVE EN</small><strong>00:20</strong><small>segundos</small></div></div><div class="break-card-bottom">Respira. Mira hacia un punto lejano.</div></div></div>
+      <div class="stars" aria-hidden="true"></div>
+      <div class="break-inner"><div><p class="section-label">DESCANSO</p><h2 id="break-title">Una señal clara para mirar lejos.</h2><p>Cuando comienza la pausa, Vitremi pasa al azul nocturno y muestra su cielo estrellado. El contador indica cuánto falta para volver; el aviso de fin depende de tus ajustes y de iOS.</p></div><div class="break-time" aria-label="Ejemplo de descanso de veinte segundos"><span>UNA PAUSA PUEDE DURAR</span><strong>00:20</strong><small>Ejemplo del perfil Focus</small></div></div>
     </section>
-    <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title"><div class="section-inner feature-layout"><div class="section-copy"><p class="eyebrow">03 / CALENDARIO</p><h2 id="calendar-title">Encuentra un momento <em>para cada día.</em></h2><p>Programa sesiones para fechas concretas o repítelas a diario, semanal o mensualmente. Elige el perfil y la duración que encajen con tu rutina; Vitremi prepara los avisos disponibles en tu iPhone.</p><p class="small-note">Los recordatorios dependen de los permisos y límites de iOS. La app muestra hasta cuándo están preparados.</p></div><div class="calendar-mock" aria-label="Ejemplo ilustrativo del calendario"><div class="mock-header"><span>Calendario</span><span>⊕</span></div><div class="mock-month">Noviembre <span>‹ &nbsp; ›</span></div><div class="mock-week"><span>LU<b>16</b></span><span>MA<b>17</b></span><span class="selected">MI<b>18</b></span><span>JU<b>19</b></span><span>VI<b>20</b></span><span>SÁ<b>21</b></span><span>DO<b>22</b></span></div><div class="mock-label">MIÉRCOLES 18</div><div class="mock-event"><span class="event-time">09:00</span><span class="event-bar"><strong>Focus</strong><small>Sesión programada</small></span></div><div class="mock-event"><span class="event-time">15:30</span><span class="event-bar muted"><strong>Relaxed</strong><small>Sesión programada</small></span></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div></section>
-    <section class="history-section section" id="historial" aria-labelledby="history-title"><div class="section-inner feature-layout reverse"><div class="history-mock" aria-label="Ejemplo ilustrativo del historial"><div class="mock-header"><span>Historial</span><span>◷</span></div><p class="mock-label">TU ACTIVIDAD</p><div class="history-stats"><span><strong>3</strong><small>sesiones</small></span><span><strong>8</strong><small>descansos</small></span></div><div class="history-row"><span class="history-mark">◉</span><span><strong>Focus</strong><small>Hoy · 09:00–11:00</small></span><span>›</span></div><div class="history-row"><span class="history-mark">✳</span><span><strong>Relaxed</strong><small>Ayer · 15:30–16:30</small></span><span>›</span></div></div><div class="section-copy"><p class="eyebrow">04 / HISTORIAL</p><h2 id="history-title">Tu rutina, <em>a la vista.</em></h2><p>Consulta tus sesiones y descansos anteriores en el Historial. Los registros describen el tiempo programado; Vitremi no mide tu tiempo de pantalla ni verifica si miraste a lo lejos.</p><a class="text-link" href="privacy.html">Cómo cuidamos tus datos <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title"><div class="section-top"><p class="section-label">CALENDARIO</p><h2 id="calendar-title">Planifica tus sesiones cuando las necesitas.</h2><p>Elige el día, un perfil y cuánto durará la sesión. Puedes usar una fecha concreta o repetir el horario.</p></div><div class="repeat-list" aria-label="Opciones de repetición"><div><span>01</span><strong>Una vez</strong><p>Para una fecha específica.</p></div><div><span>02</span><strong>Cada día</strong><p>Para una rutina diaria.</p></div><div><span>03</span><strong>Cada semana</strong><p>Para días que se repiten.</p></div><div><span>04</span><strong>Cada mes</strong><p>Para un día del mes.</p></div></div><p class="fine-print">Vitremi muestra hasta cuándo están preparados los recordatorios. Su entrega depende de los permisos y límites de iOS.</p></section>
+    <section class="history-section section" id="historial" aria-labelledby="history-title"><div class="history-lead"><p class="section-label">HISTORIAL</p><h2 id="history-title">Revisa tus sesiones anteriores.</h2></div><div class="history-detail"><p>Al terminar, puedes consultar el tiempo de sesión y los descansos registrados. Es un resumen de la rutina que configuraste, no una medición de tiempo de pantalla.</p><p>Vitremi no comprueba si miraste a lo lejos. Tus sesiones e historial se guardan en el iPhone, sin cuenta.</p><a class="inline-link" href="privacy.html">Lee cómo tratamos tus datos <span aria-hidden="true">↗</span></a></div></section>
   </main>
-  <footer class="site-footer"><div><a class="brand" href="#inicio"><img src="assets/vitremi-icon.png" alt="" width="32" height="32"><span>vitremi</span></a><p>Una pausa para tus ojos, a tu ritmo.</p></div><div class="footer-links"><a href="privacy.html">Privacidad</a><a href="support.html">Soporte</a><a href="usage.html">Uso y límites</a></div><small>© 2026 Domepath. Vitremi acompaña hábitos de bienestar visual; no ofrece diagnósticos ni resultados médicos.</small></footer>
+  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="assets/vitremi-icon.png" width="32" height="32" alt=""><span>vitremi</span></a><p>Hábitos de bienestar visual para iPhone.</p></div><div class="footer-links"><a href="privacy.html">Privacidad</a><a href="support.html">Soporte</a><a href="usage.html">Uso y límites</a></div><small>© 2026 Domepath. Vitremi no ofrece diagnósticos ni resultados médicos.</small></footer>
 </body>
 </html>

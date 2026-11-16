@@ -3,41 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#e3e8e2">
-  <meta name="description" content="Vitremi helps you build an eye break routine with sessions, reminders, and a flexible calendar for iPhone.">
-  <title>Vitremi — a moment to look away</title>
+  <meta name="theme-color" content="#e3e6e1">
+  <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and history for iPhone.">
+  <title>Vitremi — eye breaks for iPhone</title>
   <link rel="icon" href="../assets/vitremi-icon.png">
   <link rel="stylesheet" href="../assets/style.css">
   <script src="../assets/scene.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Vitremi, home"><img src="../assets/vitremi-icon.png" alt="" width="38" height="38"><span>vitremi</span></a>
-    <nav aria-label="Main navigation"><a href="#descanso">Break</a><a href="#calendario">Calendar</a><a href="#historial">History</a></nav>
-    <a class="language" href="../" lang="es" hreflang="es">Español <span aria-hidden="true">↗</span></a>
+    <a class="brand" href="#inicio" aria-label="Vitremi, home"><img src="../assets/vitremi-icon.png" width="38" height="38" alt=""><span>vitremi</span></a>
+    <nav aria-label="Sections"><a href="#descanso">Break</a><a href="#calendario">Calendar</a><a href="#historial">History</a></nav>
+    <label class="language-picker">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 4 5.5 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.5-4-9s1.4-6.5 4-9Z"/></svg>
+      <span class="sr-only">Language</span>
+      <select aria-label="Language" data-language-picker><option value="../">Español</option><option value="./" selected>English</option></select>
+    </label>
   </header>
   <main>
-    <section class="hero section" id="inicio" aria-labelledby="hero-title">
-      <div class="hero-copy">
-        <p class="eyebrow">EYE WELLNESS · IPHONE</p>
-        <h1 id="hero-title">Make room to <em>look away.</em></h1>
-        <p class="lead">Vitremi helps you take eye breaks while you work or study on any screen. Start a session and get reminders at a pace that suits you.</p>
-        <div class="hero-actions"><a class="button" href="#descanso">Explore Vitremi <span aria-hidden="true">↗</span></a><span class="micro">No account. Your sessions stay on your iPhone.</span></div>
-      </div>
-      <div class="hero-visual" aria-label="Illustrative Vitremi session">
-        <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
-        <div class="phone phone-main"><div class="phone-top"><span>9:41</span><span>●●●</span></div><div class="phone-title"><span class="tiny-icon">◉</span><span>Session</span></div><p class="phone-kicker">IN PROGRESS</p><div class="dial"><span class="dial-center"><small>NEXT BREAK</small><strong>19:42</strong><small>minutes</small></span></div><div class="phone-profile"><span class="profile-symbol">✳</span><span><strong>Focus</strong><small>Work and break</small></span><span>⌄</span></div><div class="phone-controls"><span>Pause</span><span>Take a break</span></div><div class="phone-tabs"><span>◉<small>Session</small></span><span>▦<small>Calendar</small></span><span>◫<small>History</small></span><span>☷<small>Settings</small></span></div></div>
-      </div>
-      <div class="section-number">01 / 04</div>
+    <section class="intro section" id="inicio" aria-labelledby="intro-title">
+      <div class="intro-copy"><p class="section-label">VITREMI FOR IPHONE</p><h1 id="intro-title">Eye breaks for days spent at a screen.</h1><p>Start a session on your iPhone. Vitremi reminds you when to look away, counts each break, and saves a summary when you're done.</p><a class="inline-link" href="#descanso">How it works <span aria-hidden="true">↘</span></a></div>
+      <figure class="cycle" aria-label="Example of the Vitremi Focus cycle"><div class="cycle-heading"><img src="../assets/vitremi-icon.png" width="62" height="62" alt=""><span><strong>A simple cycle</strong><small>Example with the Focus profile</small></span></div><ol><li><span class="cycle-step">01</span><span><strong>Work</strong><small>20 minutes until the next reminder</small></span></li><li><span class="cycle-step">02</span><span><strong>Break</strong><small>20 seconds to look away</small></span></li><li><span class="cycle-step">03</span><span><strong>Continue</strong><small>The cycle begins again</small></span></li></ol><figcaption>You can adjust the times to fit your routine.</figcaption></figure>
     </section>
-    <section class="break-section section" id="descanso" aria-labelledby="break-title">
-      <div class="starfield" aria-hidden="true"></div>
-      <div class="break-glow" aria-hidden="true"></div>
-      <div class="section-inner break-layout"><div class="section-copy"><p class="eyebrow">02 / BREAK</p><h2 id="break-title">When a break begins, <em>the mood shifts.</em></h2><p>A starry sky and deep blue color mark a moment to look away from the screen. Vitremi counts down your break and can notify you when it ends, depending on your settings and iOS permissions.</p><div class="detail-line"><span class="detail-dot"></span>Your cycle continues when the app is closed.</div></div><div class="break-card"><div class="break-card-top"><span>✦</span><span>BREAK IN PROGRESS</span><span>···</span></div><div class="break-orbit"><div class="break-orbit-inner"><small>RETURN IN</small><strong>00:20</strong><small>seconds</small></div></div><div class="break-card-bottom">Breathe. Look at something far away.</div></div></div>
-    </section>
-    <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title"><div class="section-inner feature-layout"><div class="section-copy"><p class="eyebrow">03 / CALENDAR</p><h2 id="calendar-title">Find a moment <em>for every day.</em></h2><p>Schedule sessions for specific dates, or repeat them daily, weekly, or monthly. Choose a profile and duration that fit your routine; Vitremi prepares available reminders on your iPhone.</p><p class="small-note">Reminders depend on iOS permissions and limits. The app shows how far ahead they are prepared.</p></div><div class="calendar-mock" aria-label="Illustrative calendar example"><div class="mock-header"><span>Calendar</span><span>⊕</span></div><div class="mock-month">November <span>‹ &nbsp; ›</span></div><div class="mock-week"><span>MO<b>16</b></span><span>TU<b>17</b></span><span class="selected">WE<b>18</b></span><span>TH<b>19</b></span><span>FR<b>20</b></span><span>SA<b>21</b></span><span>SU<b>22</b></span></div><div class="mock-label">WEDNESDAY 18</div><div class="mock-event"><span class="event-time">09:00</span><span class="event-bar"><strong>Focus</strong><small>Scheduled session</small></span></div><div class="mock-event"><span class="event-time">15:30</span><span class="event-bar muted"><strong>Relaxed</strong><small>Scheduled session</small></span></div><div class="mock-lines"><i></i><i></i><i></i></div></div></div></section>
-    <section class="history-section section" id="historial" aria-labelledby="history-title"><div class="section-inner feature-layout reverse"><div class="history-mock" aria-label="Illustrative history example"><div class="mock-header"><span>History</span><span>◷</span></div><p class="mock-label">YOUR ACTIVITY</p><div class="history-stats"><span><strong>3</strong><small>sessions</small></span><span><strong>8</strong><small>breaks</small></span></div><div class="history-row"><span class="history-mark">◉</span><span><strong>Focus</strong><small>Today · 09:00–11:00</small></span><span>›</span></div><div class="history-row"><span class="history-mark">✳</span><span><strong>Relaxed</strong><small>Yesterday · 15:30–16:30</small></span><span>›</span></div></div><div class="section-copy"><p class="eyebrow">04 / HISTORY</p><h2 id="history-title">Your routine, <em>in view.</em></h2><p>Review past sessions and breaks in History. Records describe scheduled time; Vitremi does not measure screen time or check whether you looked away.</p><a class="text-link" href="../privacy.html#english">How we handle your data <span aria-hidden="true">↗</span></a></div></div></section>
+    <section class="break-section section" id="descanso" aria-labelledby="break-title"><div class="stars" aria-hidden="true"></div><div class="break-inner"><div><p class="section-label">BREAK</p><h2 id="break-title">A clear cue to look away.</h2><p>When a break begins, Vitremi shifts to deep blue and shows its starry sky. The timer tells you when to return; the end reminder depends on your settings and iOS.</p></div><div class="break-time" aria-label="Example of a twenty second break"><span>A BREAK CAN LAST</span><strong>00:20</strong><small>Focus profile example</small></div></div></section>
+    <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title"><div class="section-top"><p class="section-label">CALENDAR</p><h2 id="calendar-title">Plan sessions when you need them.</h2><p>Choose a day, a profile, and how long the session will last. Use a specific date or repeat the schedule.</p></div><div class="repeat-list" aria-label="Repeat options"><div><span>01</span><strong>Once</strong><p>For a specific date.</p></div><div><span>02</span><strong>Every day</strong><p>For a daily routine.</p></div><div><span>03</span><strong>Every week</strong><p>For repeating days.</p></div><div><span>04</span><strong>Every month</strong><p>For a day of the month.</p></div></div><p class="fine-print">Vitremi shows how far ahead reminders are prepared. Delivery depends on iOS permissions and limits.</p></section>
+    <section class="history-section section" id="historial" aria-labelledby="history-title"><div class="history-lead"><p class="section-label">HISTORY</p><h2 id="history-title">Review earlier sessions.</h2></div><div class="history-detail"><p>When a session ends, you can review its duration and recorded breaks. This summarizes the routine you set up; it does not measure screen time.</p><p>Vitremi does not check whether you looked away. Your sessions and history stay on your iPhone, without an account.</p><a class="inline-link" href="privacy.html">Read how we handle your data <span aria-hidden="true">↗</span></a></div></section>
   </main>
-  <footer class="site-footer"><div><a class="brand" href="#inicio"><img src="../assets/vitremi-icon.png" alt="" width="32" height="32"><span>vitremi</span></a><p>A break for your eyes, at your pace.</p></div><div class="footer-links"><a href="../privacy.html#english">Privacy</a><a href="../support.html#english">Support</a><a href="../usage.html#english">Use and limits</a></div><small>© 2026 Domepath. Vitremi supports eye wellness habits; it does not provide diagnosis or promise medical results.</small></footer>
+  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="../assets/vitremi-icon.png" width="32" height="32" alt=""><span>vitremi</span></a><p>Eye wellness habits for iPhone.</p></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="usage.html">Use and limits</a></div><small>© 2026 Domepath. Vitremi does not provide diagnosis or promise medical results.</small></footer>
 </body>
 </html>
