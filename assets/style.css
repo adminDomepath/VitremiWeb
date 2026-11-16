@@ -43,6 +43,7 @@ body.is-break {
 }
 .is-break .site-header { color: var(--sky-ink); background: var(--night); border-color: var(--sky-line); }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 760; letter-spacing: -.07em; white-space: nowrap; }
+.is-break .brand img { content: url("vitremi-icon-composer-night.png"); }
 .site-header nav { display: flex; gap: clamp(12px, 2vw, 30px); margin-left: auto; font-size: .86rem; font-weight: 600; }
 .site-header nav a:hover, .footer-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .language-picker { position: relative; padding-left: 22px; border-left: 1px solid currentColor; }
