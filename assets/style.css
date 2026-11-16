@@ -11,6 +11,7 @@
   --soft-shadow: -7px -7px 14px #ffffffe6, 7px 7px 14px #a3ada88c;
   --blue: #213b63;
   --night: #09132b;
+  --rest-fade: .45s ease;
   --font: ui-rounded, "SF Pro Rounded", "Avenir Next", Avenir, system-ui, sans-serif;
 }
 
@@ -43,7 +44,10 @@ body.is-break {
 }
 .is-break .site-header { color: var(--sky-ink); background: var(--night); border-color: var(--sky-line); }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 760; letter-spacing: -.07em; white-space: nowrap; }
-.is-break .brand img { content: url("vitremi-icon-composer-night.png"); }
+.brand-mark { display: grid; }
+.brand-mark img { grid-area: 1 / 1; }
+.brand-mark-night { opacity: 0; transition: opacity var(--rest-fade); }
+.is-break .brand-mark-night { opacity: 1; }
 .site-header nav { display: flex; gap: clamp(12px, 2vw, 30px); margin-left: auto; font-size: .86rem; font-weight: 600; }
 .site-header nav a:hover, .footer-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .language-picker { position: relative; padding-left: 22px; border-left: 1px solid currentColor; }
@@ -156,7 +160,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   inset: 0;
   opacity: 0;
   background: linear-gradient(to bottom, var(--night), var(--blue) 58%, #142440);
-  transition: opacity .45s ease;
+  transition: opacity var(--rest-fade);
   pointer-events: none;
 }
 .rest-sky canvas { display: block; width: 100%; height: 100%; }
