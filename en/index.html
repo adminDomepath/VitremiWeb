@@ -7,8 +7,8 @@
   <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and history for iPhone.">
   <title>Vitremi — eye breaks for iPhone</title>
   <link rel="icon" href="../assets/vitremi-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=full-sky">
-  <script src="../assets/scene.js?v=full-sky" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=scroll-dial">
+  <script src="../assets/scene.js?v=scroll-dial" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
@@ -30,22 +30,32 @@
     <section class="intro section" id="inicio" aria-labelledby="intro-title">
       <div class="intro-copy">
         <h1 id="intro-title">Eye break reminders</h1>
-        <p>Start a session and Vitremi will remind you when to look away from your screen.</p>
+        <p>Vitremi reminds you to follow the <strong>20‑20‑20 rule</strong>. Every 20 minutes, look at something about 20 feet (6 meters) away for at least 20 seconds.</p>
         <a class="inline-link" href="#descanso">See a break <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="timer-dial" role="img" aria-label="Next break in 20 minutes">
-        <div class="timer-face"><strong>20:00</strong><span>MINUTES</span></div>
+      <div class="timer-slot">
+        <div class="timer-dial" role="timer" aria-label="Time until break" data-rest-label="Break time remaining">
+          <svg class="timer-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="timer-gradient" x2="0%" y2="100%">
+                <stop class="ring-start" offset="0%"/>
+                <stop class="ring-end" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-track" cx="50" cy="50" r="48"/>
+            <circle class="ring-progress" cx="50" cy="50" r="48" pathLength="100"/>
+          </svg>
+          <div class="timer-face"><strong>20:00</strong><span data-rest-phase="BREAK">MINUTES</span></div>
+        </div>
       </div>
     </section>
     <section class="break-section section" id="descanso" aria-labelledby="break-title">
       <div class="break-inner">
         <div class="break-copy">
           <h2 id="break-title">Break</h2>
-          <p>When Vitremi reminds you, look away from your screen and into the distance.</p>
+          <p>When the reminder appears, look away from the screen. Pick a fixed point about 20 feet (6 meters) away and keep your gaze there for 20 seconds. Looking into the distance gives your eyes a break from focusing up close and may ease eye strain.</p>
         </div>
-        <div class="timer-dial" role="img" aria-label="Next break in 20 minutes" data-rest-label="20 second break">
-          <div class="timer-face"><strong>20:00</strong><span data-rest-phase="BREAK">MINUTES</span></div>
-        </div>
+        <div class="timer-slot timer-destination" aria-hidden="true"></div>
       </div>
     </section>
     <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title">

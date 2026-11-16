@@ -51,26 +51,74 @@ function drawRestSky(canvas) {
 const breakSection = document.querySelector('#descanso');
 if (breakSection) {
   const canvas = document.querySelector('.rest-sky canvas');
-  const dial = breakSection.querySelector('[data-rest-label]');
+  const dial = document.querySelector('.timer-dial');
+  const origin = dial.parentElement;
+  const destination = breakSection.querySelector('.timer-destination');
   const clock = dial.querySelector('strong');
   const phase = dial.querySelector('[data-rest-phase]');
-  const idleLabel = dial.getAttribute('aria-label');
-  const idlePhase = phase.textContent;
+  const workLabel = dial.getAttribute('aria-label');
+  const workPhase = phase.textContent;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const workSeconds = 20 * 60;
+  const breakSeconds = 20;
   let frame = 0;
   let resting = false;
+  let breakDeadline = 0;
+  let breakTick = 0;
+
+  function showTime(remaining, duration) {
+    const seconds = Math.ceil(remaining);
+    const minutes = String(Math.floor(seconds / 60)).padStart(2, '0');
+    const fraction = remaining / duration;
+    const display = `${minutes}:${String(seconds % 60).padStart(2, '0')}`;
+
+    if (clock.textContent !== display) clock.textContent = display;
+    dial.style.setProperty('--ring-offset', (100 * (1 - fraction)).toFixed(2));
+    dial.style.setProperty('--ring-visible', fraction > 0 ? '1' : '0');
+  }
+
+  function updateBreakTime() {
+    const remaining = Math.max(0, (breakDeadline - performance.now()) / 1000);
+    showTime(remaining, breakSeconds);
+    if (remaining === 0) window.clearInterval(breakTick);
+  }
 
   function updatePhase() {
     frame = 0;
     const section = breakSection.getBoundingClientRect();
+    const start = origin.getBoundingClientRect();
+    const end = destination.getBoundingClientRect();
     const focusLine = Math.min(window.innerHeight / 2, 310);
     const reachedBreak = section.top <= focusLine && focusLine < section.bottom;
-    if (reachedBreak === resting) return;
+    const startCenter = start.top + start.height / 2;
+    const distance = end.top - start.top;
+    const followLine = Math.min(startCenter + window.scrollY, window.innerHeight * 0.6);
+    const travel = reduceMotion.matches
+      ? (section.top <= focusLine ? distance : 0)
+      : Math.max(0, Math.min(distance, followLine - startCenter));
 
-    resting = reachedBreak;
-    document.body.classList.toggle('is-break', resting);
-    clock.textContent = resting ? '00:20' : '20:00';
-    phase.textContent = resting ? phase.dataset.restPhase : idlePhase;
-    dial.setAttribute('aria-label', resting ? dial.dataset.restLabel : idleLabel);
+    dial.style.setProperty('--timer-travel', `${travel}px`);
+
+    if (reachedBreak !== resting) {
+      resting = reachedBreak;
+      document.body.classList.toggle('is-break', resting);
+      phase.textContent = resting ? phase.dataset.restPhase : workPhase;
+      dial.setAttribute('aria-label', resting ? dial.dataset.restLabel : workLabel);
+      window.clearInterval(breakTick);
+
+      if (resting) {
+        breakDeadline = performance.now() + breakSeconds * 1000;
+        showTime(breakSeconds, breakSeconds);
+        breakTick = window.setInterval(updateBreakTime, 50);
+      }
+    }
+
+    if (!resting) {
+      const workDistance = Math.max(1, window.scrollY + section.top - focusLine);
+      // Leave a short stretch at zero before entering the break.
+      const progress = Math.min(1, Math.max(0, window.scrollY / (workDistance * 0.94)));
+      showTime(workSeconds * (1 - progress), workSeconds);
+    }
   }
 
   function scheduleUpdate() {
@@ -84,6 +132,7 @@ if (breakSection) {
   window.addEventListener('scroll', scheduleUpdate, { passive: true });
   window.addEventListener('resize', scheduleUpdate);
   window.addEventListener('pageshow', scheduleUpdate);
+  reduceMotion.addEventListener('change', scheduleUpdate);
   updatePhase();
 }
 

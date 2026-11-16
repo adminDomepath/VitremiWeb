@@ -7,8 +7,8 @@
   <meta name="description" content="Vitremi organiza descansos visuales mientras trabajas o estudias frente a una pantalla. Sesiones, calendario e historial para iPhone.">
   <title>Vitremi — descansos visuales para iPhone</title>
   <link rel="icon" href="assets/vitremi-icon.png">
-  <link rel="stylesheet" href="assets/style.css?v=full-sky">
-  <script src="assets/scene.js?v=full-sky" defer></script>
+  <link rel="stylesheet" href="assets/style.css?v=scroll-dial">
+  <script src="assets/scene.js?v=scroll-dial" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
@@ -30,22 +30,32 @@
     <section class="intro section" id="inicio" aria-labelledby="intro-title">
       <div class="intro-copy">
         <h1 id="intro-title">Recordatorios de descansos visuales</h1>
-        <p>Inicia una sesión y Vitremi te avisará cuándo apartar la vista de la pantalla.</p>
+        <p>Vitremi te recuerda seguir la <strong>regla 20‑20‑20</strong>. Cada 20 minutos, mira durante al menos 20 segundos algo que esté a unos 6 metros (20 pies).</p>
         <a class="inline-link" href="#descanso">Ver el descanso <span aria-hidden="true">↓</span></a>
       </div>
-      <div class="timer-dial" role="img" aria-label="Próximo descanso en 20 minutos">
-        <div class="timer-face"><strong>20:00</strong><span>MINUTOS</span></div>
+      <div class="timer-slot">
+        <div class="timer-dial" role="timer" aria-label="Tiempo hasta el descanso" data-rest-label="Tiempo de descanso restante">
+          <svg class="timer-ring" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <linearGradient id="timer-gradient" x2="0%" y2="100%">
+                <stop class="ring-start" offset="0%"/>
+                <stop class="ring-end" offset="100%"/>
+              </linearGradient>
+            </defs>
+            <circle class="ring-track" cx="50" cy="50" r="48"/>
+            <circle class="ring-progress" cx="50" cy="50" r="48" pathLength="100"/>
+          </svg>
+          <div class="timer-face"><strong>20:00</strong><span data-rest-phase="DESCANSO">MINUTOS</span></div>
+        </div>
       </div>
     </section>
     <section class="break-section section" id="descanso" aria-labelledby="break-title">
       <div class="break-inner">
         <div class="break-copy">
           <h2 id="break-title">Descanso</h2>
-          <p>Cuando Vitremi te avise, aparta la vista de la pantalla y mira a lo lejos.</p>
+          <p>Cuando Vitremi te avise, aparta la vista de la pantalla. Elige un punto fijo a unos 6 metros y mantén la mirada ahí durante 20 segundos. Mirar a lo lejos permite que tus ojos descansen de enfocar de cerca y puede aliviar la fatiga visual.</p>
         </div>
-        <div class="timer-dial" role="img" aria-label="Próximo descanso en 20 minutos" data-rest-label="Descanso de 20 segundos">
-          <div class="timer-face"><strong>20:00</strong><span data-rest-phase="DESCANSO">MINUTOS</span></div>
-        </div>
+        <div class="timer-slot timer-destination" aria-hidden="true"></div>
       </div>
     </section>
     <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title">

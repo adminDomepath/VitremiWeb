@@ -101,24 +101,38 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   font-weight: 650;
 }
 .inline-link:hover { color: var(--green); background: var(--paper-light); }
+.timer-slot {
+  justify-self: center;
+  width: min(100%, 300px);
+  aspect-ratio: 1;
+}
 .timer-dial {
   --ring-start: var(--sage);
   --ring-end: var(--green);
   position: relative;
-  isolation: isolate;
-  display: grid;
-  place-items: center;
-  justify-self: center;
-  width: min(100%, 300px);
-  min-width: 0;
+  z-index: 1;
+  width: 100%;
   aspect-ratio: 1;
+  transform: translateY(var(--timer-travel, 0px));
   border: 1px solid #ffffff99;
   border-radius: 50%;
   background: var(--paper);
   box-shadow: -12px -12px 24px #fffffff2, 12px 12px 24px #a3ada899;
   transition: box-shadow .45s ease;
 }
-.timer-dial::before { content: ""; position: absolute; inset: 7%; border-radius: 50%; background: linear-gradient(var(--ring-start), var(--ring-end)); z-index: -1; }
+.timer-ring { position: absolute; inset: 7%; width: 86%; height: 86%; fill: none; stroke-width: 3.5; }
+.ring-track { stroke: #a3ada866; }
+.ring-progress {
+  stroke: url(#timer-gradient);
+  stroke-linecap: round;
+  stroke-dasharray: 100;
+  stroke-dashoffset: var(--ring-offset, 0);
+  opacity: var(--ring-visible, 1);
+  transform: rotate(-90deg);
+  transform-origin: center;
+}
+.ring-start { stop-color: var(--ring-start); }
+.ring-end { stop-color: var(--ring-end); }
 .timer-face {
   display: flex;
   flex-direction: column;
@@ -163,7 +177,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 .is-break :is(.intro, .history-section) .inline-link,
 .is-break .timer-dial { color: var(--ink); }
 .is-break :is(.timer-dial, .break-copy, .inline-link) { box-shadow: 0 12px 32px #09132b55; }
-.is-break .break-section .timer-dial {
+.is-break .timer-dial {
   --ring-start: #547ba9;
   --ring-end: var(--blue);
 }
@@ -195,7 +209,8 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 @media (max-width: 760px) {
   .intro, .break-inner { grid-template-columns: 1fr; min-height: 0; padding: 66px 24px; gap: 38px; }
   .intro h1 { font-size: clamp(2.6rem, 9vw, 4rem); }
-  .timer-dial { width: min(100%, 246px); }
+  .timer-slot { width: min(100%, 246px); }
+  .break-copy { grid-row: 2; }
   .repeat-list { grid-template-columns: repeat(2, 1fr); }
   .history-section { grid-template-columns: 1fr; gap: 0; }
 }
