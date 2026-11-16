@@ -256,7 +256,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 }
 .metric-part { display: inline-block; white-space: nowrap; }
 .metric-digit { display: inline-block; height: 1.25em; overflow: hidden; vertical-align: bottom; }
-.metric-digit-track { display: grid; animation: metric-roll-up .55s cubic-bezier(.2, .7, .25, 1) both; }
+.metric-digit-track { display: grid; animation: metric-roll-up 917ms cubic-bezier(.2, .7, .25, 1) both; }
 .metric-digit-track span { height: 1.25em; }
 @keyframes metric-roll-up {
   to { transform: translateY(-50%); }

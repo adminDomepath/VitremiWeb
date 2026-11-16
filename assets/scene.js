@@ -210,7 +210,7 @@ const historyMetrics = document.querySelector('.history-metrics');
 if (historyMetrics) {
   const values = [...historyMetrics.querySelectorAll('.metric-value')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-  let breaks = 5;
+  let advances = 0;
   let visible = false;
   let timer;
 
@@ -225,10 +225,10 @@ if (historyMetrics) {
 
   function metricParts() {
     return [
-      durationParts(breaks * 20 * 60),
-      [[breaks, '']],
-      [[Math.floor((breaks + 1) / 3), '']],
-      durationParts(breaks * 20)
+      durationParts((100 + advances) * 60),
+      [[5 + Math.floor(advances / 4), '']],
+      [[2 + Math.floor(advances / 6), '']],
+      durationParts(100 + advances)
     ];
   }
 
@@ -257,7 +257,7 @@ if (historyMetrics) {
 
   function advanceMetrics() {
     const previous = metricParts();
-    breaks++;
+    advances++;
 
     for (const [index, parts] of metricParts().entries()) {
       const [visual, accessibleValue] = values[index].children;
@@ -282,7 +282,7 @@ if (historyMetrics) {
   function updateMetricsTimer() {
     const shouldAdvance = visible && !document.hidden && !reduceMotion.matches;
     if (shouldAdvance && timer === undefined) {
-      timer = window.setInterval(advanceMetrics, 3800);
+      timer = window.setInterval(advanceMetrics, 2800);
     } else if (!shouldAdvance && timer !== undefined) {
       window.clearInterval(timer);
       timer = undefined;
