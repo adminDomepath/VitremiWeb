@@ -191,12 +191,13 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 .calendar-section, .blink-section, .history-section { max-width: 1280px; margin: auto; padding: 86px clamp(24px, 7vw, 92px); }
 .calendar-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(140px, 216px);
+  grid-template-columns: minmax(140px, 216px) minmax(0, 1fr);
   align-items: center;
   gap: clamp(24px, 5vw, 72px);
 }
 .calendar-logo {
   display: grid;
+  grid-area: 1 / 1;
   width: min(100%, 216px);
   aspect-ratio: 1;
   justify-self: center;
@@ -313,7 +314,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   :root { --timer-diameter: 246px; }
   .break-copy { grid-row: 2; }
   .calendar-section { grid-template-columns: 1fr; }
-  .calendar-logo { grid-row: 1; width: min(100%, 150px); }
+  .calendar-logo { width: min(100%, 150px); }
   .repeat-list { grid-template-columns: repeat(2, 1fr); }
   .history-section { grid-template-columns: 1fr; gap: 32px; }
 }
