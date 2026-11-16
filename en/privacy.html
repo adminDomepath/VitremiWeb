@@ -36,11 +36,10 @@
       <p>Vitremi stores the profiles, preferences, and schedules you set up, along with your sessions and history, on your iPhone. It uses this data to organize reminders and show your history. The app works without an account, ads, or external analytics. It does not access your camera, location, microphone, or usage of other apps. Vitremi does not sync this data with iCloud. iPhone backups depend on your iOS settings.</p>
 
       <h2>Notifications and Live Activities</h2>
-      <p>Vitremi schedules local notifications with your permission. When you use a Live Activity, the app sends its push token, upcoming phase times, and the state needed to update it to a Vitremi server. The server uses this data to deliver updates through Apple Push Notification service (APNs). Your stored profiles and full history stay on your iPhone. See <a class="contact-link" href="https://www.apple.com/legal/privacy/">Apple’s privacy policy</a>.</p>
-      <p>When the session changes, the server replaces pending updates. Inactive activities are automatically removed from the server about eight hours after their last synchronization. The hosting infrastructure may generate technical logs of network requests.</p>
+      <p>Vitremi schedules local notifications on your iPhone with your permission. Live Activities are updated on your device through ActivityKit. The current version does not send session data or Live Activity tokens to DomePath.</p>
 
       <h2>Control and deletion</h2>
-      <p>You can withdraw notification permission or turn off Live Activities in iOS Settings. In Vitremi, <strong>Settings → Delete all data</strong> removes local data, including your preferences, schedules, sessions, and history, and ends the active session. When the activity ends, Vitremi requests cancellation of pending updates if it can reach the server.</p>
+      <p>You can withdraw notification permission or turn off Live Activities in iOS Settings. In Vitremi, <strong>Settings → Delete all data</strong> removes local data, including your preferences, schedules, sessions, and history, and ends the active session.</p>
 
       <h2 id="privacy-requests">Privacy requests</h2>
       <p>Email <a class="contact-link" href="mailto:leonardo.arias@domepath.com?subject=Vitremi%20privacy">leonardo.arias@domepath.com</a> to request access, correction, deletion, or objection to the processing of your data, withdraw consent, or request limits on use or disclosure of your data. Tell us which right you wish to exercise and which data or request you want us to review. If we need to verify your identity, we will explain how.</p>
