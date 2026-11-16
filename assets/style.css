@@ -196,6 +196,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   text-align: center;
 }
 .blink-section p { margin: 0 auto; }
+.blink-section p + p { margin-top: 12px; }
 .blink-orb {
   display: grid;
   place-items: center;
