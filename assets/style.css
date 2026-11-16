@@ -42,8 +42,8 @@ body.is-break {
 }
 .is-break .site-header { color: var(--sky-ink); background: var(--night); border-color: var(--sky-line); }
 .brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.25rem; font-weight: 760; letter-spacing: -.07em; white-space: nowrap; }
-.brand img { border-radius: 9px; }
-.site-header nav { display: flex; gap: clamp(18px, 3vw, 44px); margin-left: auto; font-size: .86rem; font-weight: 600; }
+.is-break .brand img { content: url("vitremi-ring-night.png"); }
+.site-header nav { display: flex; gap: clamp(12px, 2vw, 30px); margin-left: auto; font-size: .86rem; font-weight: 600; }
 .site-header nav a:hover, .footer-links a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .language-picker { position: relative; padding-left: 22px; border-left: 1px solid currentColor; }
 .language-picker summary {
@@ -87,7 +87,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 }
 .intro { min-height: 620px; }
 .intro h1 { max-width: 640px; font-size: clamp(2.8rem, 5vw, 5rem); line-height: 1.08; margin-bottom: 24px; }
-.intro-copy p, .break-copy p, .section-top p, .history-detail p { max-width: 48ch; color: var(--muted); font-size: 1.1rem; line-height: 1.55; }
+.intro-copy p, .break-copy p, .section-top p, .calendar-note, .history-detail p { max-width: 48ch; color: var(--muted); font-size: 1.1rem; line-height: 1.55; }
 .inline-link {
   display: inline-flex;
   gap: 12px;
@@ -168,11 +168,12 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   box-shadow: var(--soft-shadow);
   transition: box-shadow .45s ease;
 }
-.break-copy h2, .calendar-section h2, .history-section h2 { font-size: clamp(2.4rem, 4.2vw, 4rem); line-height: 1.12; margin-bottom: 14px; }
+.break-copy h2, .calendar-section h2, .blink-section h2, .history-section h2 { font-size: clamp(2.4rem, 4.2vw, 4rem); line-height: 1.12; margin-bottom: 14px; }
 .break-copy p { margin-bottom: 0; }
 .is-break .rest-sky { opacity: 1; }
-.is-break :is(.intro, .calendar-section, .history-section, .site-footer) { color: var(--sky-ink); }
+.is-break :is(.intro, .calendar-section, .blink-section, .history-section, .site-footer) { color: var(--sky-ink); }
 .is-break :is(.intro-copy, .section-top, .history-detail, .site-footer) p,
+.is-break .calendar-note,
 .is-break .site-footer small { color: var(--sky-muted); }
 .is-break :is(.intro, .history-section) .inline-link,
 .is-break .timer-dial { color: var(--ink); }
@@ -182,15 +183,18 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   --ring-end: var(--blue);
 }
 
-.calendar-section, .history-section { max-width: 1280px; margin: auto; padding: 86px clamp(24px, 7vw, 92px); }
+.calendar-section, .blink-section, .history-section { max-width: 1280px; margin: auto; padding: 86px clamp(24px, 7vw, 92px); }
 .repeat-list { margin: 32px 0 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 .repeat-list li { padding: 18px; border-radius: 18px; font-weight: 650; box-shadow: inset 3px 3px 8px #a3ada866, inset -3px -3px 8px #ffffffbf; }
+.calendar-note { margin: 24px 0 0; }
+.blink-section { border-top: 1px solid var(--line); }
+.blink-section p { margin-bottom: 0; }
 .history-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; border-top: 1px solid var(--line); }
 .site-footer { padding: 42px clamp(24px, 7vw, 112px) 26px; background: var(--paper); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; }
 .footer-brand p, .site-footer small { color: var(--muted); font-size: .82rem; }
 .footer-links { display: flex; gap: 24px; align-items: center; font-size: .85rem; }
 .site-footer small { grid-column: 1 / -1; }
-.is-break :is(.history-section, .site-footer) { border-color: var(--sky-line); }
+.is-break :is(.blink-section, .history-section, .site-footer) { border-color: var(--sky-line); }
 .is-break .site-footer { background: transparent; }
 .is-break .repeat-list li { background: #ffffff12; box-shadow: inset 0 0 0 1px var(--sky-line); }
 
@@ -221,7 +225,7 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
   .language-picker { margin-left: auto; padding-left: 12px; }
   .language-picker summary { font-size: .78rem; }
   .break-copy { padding: 20px 22px; }
-  .calendar-section, .history-section { padding: 58px 24px; }
+  .calendar-section, .blink-section, .history-section { padding: 58px 24px; }
   .site-footer { grid-template-columns: 1fr; }
   .footer-links { flex-wrap: wrap; gap: 16px 24px; }
   .legal-main { padding-top: 75px; }

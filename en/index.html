@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#e3e6e6">
-  <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and history for iPhone.">
+  <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and blink reminders for iPhone.">
   <title>Vitremi — eye breaks for iPhone</title>
-  <link rel="icon" href="../assets/vitremi-icon.png">
-  <link rel="stylesheet" href="../assets/style.css?v=scroll-dial">
+  <link rel="icon" href="../assets/vitremi-ring.png">
+  <link rel="stylesheet" href="../assets/style.css?v=blink-reminders">
   <script src="../assets/scene.js?v=scroll-dial" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Vitremi, home"><img src="../assets/vitremi-icon.png" width="38" height="38" alt=""><span>vitremi</span></a>
-    <nav aria-label="Sections"><a href="#descanso">Break</a><a href="#calendario">Calendar</a><a href="#historial">History</a></nav>
+    <a class="brand" href="#inicio" aria-label="Vitremi, home"><img src="../assets/vitremi-ring.png" width="38" height="38" alt=""><span>vitremi</span></a>
+    <nav aria-label="Sections"><a href="#descanso">Break</a><a href="#calendario">Calendar</a><a href="#parpadeo">Blink</a><a href="#historial">History</a></nav>
     <details class="language-picker" data-language-picker>
       <summary>
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.5 4 5.5 4 9s-1.4 6.5-4 9c-2.6-2.5-4-5.5-4-9s1.4-6.5 4-9Z"/></svg>
@@ -61,7 +61,7 @@
     <section class="calendar-section section" id="calendario" aria-labelledby="calendar-title">
       <div class="section-top">
         <h2 id="calendar-title">Calendar</h2>
-        <p>Choose a date, time, and profile for your session.</p>
+        <p>Schedule a session by choosing when it starts and which profile to use. Use the profile’s duration or set an end time yourself.</p>
       </div>
       <ul class="repeat-list" role="list">
         <li>Once</li>
@@ -69,6 +69,13 @@
         <li>Every week</li>
         <li>Every month</li>
       </ul>
+      <p class="calendar-note">With notifications enabled, scheduled reminders can reach you while Vitremi is closed.</p>
+    </section>
+    <section class="blink-section section" id="parpadeo" aria-labelledby="blink-title">
+      <div class="section-top">
+        <h2 id="blink-title">Blink reminders</h2>
+        <p>Turn on Blink Reminder in Settings and choose an interval from 1 to 30 minutes. Vitremi reminds you to blink during the work portion of a session, using your sound and Live Activity settings.</p>
+      </div>
     </section>
     <section class="history-section section" id="historial" aria-labelledby="history-title">
       <h2 id="history-title">History</h2>
@@ -78,6 +85,6 @@
       </div>
     </section>
   </main>
-  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="../assets/vitremi-icon.png" width="32" height="32" alt=""><span>vitremi</span></a></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="usage.html">Use and limits</a></div><small>© 2026 Domepath</small></footer>
+  <footer class="site-footer"><div class="footer-brand"><a class="brand" href="#inicio"><img src="../assets/vitremi-ring.png" width="32" height="32" alt=""><span>vitremi</span></a></div><div class="footer-links"><a href="privacy.html">Privacy</a><a href="support.html">Support</a><a href="usage.html">Use and limits</a></div><small>© 2026 Domepath</small></footer>
 </body>
 </html>
