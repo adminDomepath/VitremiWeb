@@ -152,11 +152,25 @@ if (languagePicker) {
 const blinkOrb = document.querySelector('.blink-orb');
 if (blinkOrb) {
   const eye = blinkOrb.querySelector('.blink-eye');
+  const pupil = eye.querySelector('.blink-pupil');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const visibleFraction = 0.65;
+  let visible = false;
   let animation;
 
-  function playBlink() {
-    if (reduceMotion.matches) return;
+  function centerPupil() {
+    pupil.removeAttribute('transform');
+  }
+
+  function updateBlink() {
+    if (!visible || document.hidden || reduceMotion.matches) {
+      animation?.cancel();
+      animation = undefined;
+      centerPupil();
+      return;
+    }
+
+    if (animation) return;
 
     // Match the three closures in the app's five-second BlinkingEye cycle.
     const duration = 5000;
@@ -170,19 +184,24 @@ if (blinkOrb) {
       easing: 'ease-in-out'
     }));
 
-    animation = eye.animate(keyframes, { duration });
+    animation = eye.animate(keyframes, { duration, iterations: Infinity });
   }
 
-  const visibleFraction = 0.65;
-  const observer = new IntersectionObserver(([entry]) => {
-    if (entry.intersectionRatio < visibleFraction) return;
+  new IntersectionObserver(([entry]) => {
+    visible = entry.intersectionRatio >= visibleFraction;
+    updateBlink();
+  }, { threshold: visibleFraction }).observe(blinkOrb);
 
-    observer.disconnect();
-    playBlink();
-  }, { threshold: visibleFraction });
+  document.addEventListener('pointermove', (event) => {
+    if (!animation || event.pointerType !== 'mouse') return;
 
-  observer.observe(blinkOrb);
-  reduceMotion.addEventListener('change', () => {
-    if (reduceMotion.matches) animation?.cancel();
-  });
+    const orb = blinkOrb.getBoundingClientRect();
+    const x = event.clientX - (orb.left + orb.width / 2);
+    const y = event.clientY - (orb.top + orb.height / 2);
+    const distance = Math.max(75, Math.hypot(x, y));
+    pupil.setAttribute('transform', `translate(${8 * x / distance} ${4 * y / distance})`);
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', centerPupil);
+  document.addEventListener('visibilitychange', updateBlink);
+  reduceMotion.addEventListener('change', updateBlink);
 }

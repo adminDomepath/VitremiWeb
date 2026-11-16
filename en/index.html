@@ -7,8 +7,8 @@
   <meta name="description" content="Vitremi organizes eye breaks while you work or study at a screen. Sessions, calendar, and blink reminders for iPhone.">
   <title>Vitremi — eye breaks for iPhone</title>
   <link rel="icon" href="../assets/vitremi-ring-depth.png">
-  <link rel="stylesheet" href="../assets/style.css?v=blink-orb">
-  <script src="../assets/scene.js?v=blink-orb" defer></script>
+  <link rel="stylesheet" href="../assets/style.css?v=blinking-eye">
+  <script src="../assets/scene.js?v=blinking-eye" defer></script>
 </head>
 <body>
   <div class="rest-sky" aria-hidden="true"><canvas></canvas></div>
@@ -73,12 +73,10 @@
     </section>
     <section class="blink-section section" id="parpadeo" aria-labelledby="blink-title">
       <div class="blink-orb" aria-hidden="true">
-        <div class="blink-orb-face">
-          <svg class="blink-eye" viewBox="0 0 48 48" fill="none">
-            <path d="M3 24s7.5-12 21-12 21 12 21 12-7.5 12-21 12S3 24 3 24Z"/>
-            <circle cx="24" cy="24" r="6"/>
-          </svg>
-        </div>
+        <svg class="blink-eye" viewBox="0 0 48 48" fill="none">
+          <path d="M3 24s7.5-12 21-12 21 12 21 12-7.5 12-21 12S3 24 3 24Z"/>
+          <circle class="blink-pupil" cx="24" cy="24" r="5.5"/>
+        </svg>
       </div>
       <div class="section-top">
         <h2 id="blink-title">Blink reminders</h2>

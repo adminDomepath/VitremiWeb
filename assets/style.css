@@ -197,39 +197,24 @@ h1, h2 { font-weight: 700; letter-spacing: -.045em; }
 }
 .blink-section p { margin: 0 auto; }
 .blink-orb {
-  position: relative;
+  display: grid;
+  place-items: center;
   width: min(100%, calc(var(--timer-diameter) / 2));
   aspect-ratio: 1;
   border: 1px solid #ffffff99;
   border-radius: 50%;
-  background: var(--paper);
+  background: linear-gradient(145deg, var(--paper-light), var(--paper) 64%, #d2d8d6);
   box-shadow: var(--soft-shadow);
-}
-.blink-orb::before {
-  content: "";
-  position: absolute;
-  inset: 8%;
-  border: 1px solid #a3ada855;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #a3ada875, #f5f7f7);
-}
-.blink-orb-face {
-  position: absolute;
-  inset: 14%;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--paper);
-  box-shadow: inset 4px 4px 8px #a3ada84d, inset -4px -4px 8px #ffffffcc;
 }
 .blink-eye {
   display: block;
-  width: 54%;
+  width: 43%;
   stroke: var(--green);
   stroke-width: 2.8;
   stroke-linejoin: round;
   transform-origin: center;
 }
+.blink-pupil { fill: var(--green); stroke: none; }
 .is-break .blink-orb { box-shadow: 0 12px 32px #09132b55; }
 .history-section { display: grid; grid-template-columns: 1fr 1fr; gap: 10%; border-top: 1px solid var(--line); }
 .site-footer { padding: 42px clamp(24px, 7vw, 112px) 26px; background: var(--paper); border-top: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 24px; }
